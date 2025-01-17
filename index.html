@@ -55,6 +55,13 @@
             border-radius: 50%;
         }
 
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
@@ -196,8 +203,30 @@
         }
 
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
             nav {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.95);
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav a {
+                display: block;
+                margin: 1rem 0;
+                text-align: center;
+                padding: 0.5rem 0;
             }
 
             .hero h1 {
@@ -221,7 +250,10 @@
                 <div class="logo-circle"></div>
                 Hult Prize
             </a>
-            <nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="nav-menu">
                 <a href="#about">About</a>
                 <a href="#details">Event Details</a>
                 <a href="#guidelines">Guidelines</a>
@@ -319,5 +351,20 @@
         <p>Hult Prize at October Technological University</p>
         <p style="color: #666;">© 2025 Hult Prize Foundation. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        // إغلاق القائمة عند النقر على أي رابط
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('nav-menu');
+                nav.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
