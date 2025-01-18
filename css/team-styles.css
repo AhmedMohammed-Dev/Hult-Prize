@@ -9,6 +9,7 @@ body {
     background: linear-gradient(to bottom, #1a1a1a, #000000);
     color: white;
     min-height: 100vh;
+    line-height: 1.6;
 }
 
 /* Header Styles */
@@ -48,6 +49,7 @@ header {
     border-radius: 50%;
 }
 
+/* Navigation */
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
@@ -66,19 +68,43 @@ nav a:hover {
     color: #EC008C;
 }
 
-/* Team Section Styles */
+/* Team Section */
 .team-section {
     padding: 120px 20px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(236, 0, 140, 0.03) 100%);
+    animation: pulse 4s ease-in-out infinite;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
-    color: #EC008C;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(236, 0, 140, 0.3);
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #fff, #EC008C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #EC008C, transparent);
 }
 
 .section-subtitle {
@@ -88,78 +114,134 @@ nav a:hover {
     font-size: 1.2rem;
 }
 
+/* Team Grid */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* Team Member Card Styles */
+/* Team Member Cards */
 .team-member {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(236, 0, 140, 0.2);
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .team-member:hover {
-    transform: translateY(-5px);
-    border-color: rgba(236, 0, 140, 0.4);
-    box-shadow: 0 5px 15px rgba(236, 0, 140, 0.1);
+    transform: translateY(-10px);
+    border-color: #EC008C;
+    box-shadow: 0 15px 30px rgba(236, 0, 140, 0.2);
 }
 
 .member-image {
-    width: 100%;
-    height: 300px;
     position: relative;
+    height: 350px;
     overflow: hidden;
+}
+
+.member-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 70%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 1;
 }
 
 .member-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .team-member:hover .member-image img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
+/* Member Info */
 .member-info {
-    padding: 1.5rem;
-    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.9)
+    );
 }
 
 .member-info h3 {
-    color: #EC008C;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    color: #fff;
     margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.member-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #EC008C;
+    transition: width 0.3s ease;
+}
+
+.team-member:hover .member-info h3::after {
+    width: 100%;
 }
 
 .member-info .position {
-    color: #fff;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    color: #EC008C;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    opacity: 0.9;
 }
 
+/* Social Links */
 .member-social {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .member-social a {
-    color: white;
-    font-size: 1.2rem;
+    color: #fff;
+    font-size: 1.3rem;
     transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(236, 0, 140, 0.1);
+    border: 1px solid rgba(236, 0, 140, 0.3);
 }
 
 .member-social a:hover {
-    color: #EC008C;
-    transform: translateY(-2px);
+    background: #EC008C;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(236, 0, 140, 0.3);
 }
 
 /* Scroll Top Button */
@@ -186,7 +268,7 @@ nav a:hover {
     background: rgba(236, 0, 140, 0.8);
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     background-color: black;
     padding: 2rem;
@@ -209,23 +291,20 @@ footer {
     color: #EC008C;
 }
 
-.github-link {
+.copyright {
     color: #666;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: center;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.05);
 }
 
-.github-link:hover {
-    color: #EC008C;
-    background: rgba(236, 0, 140, 0.1);
-    transform: translateY(-2px);
+/* Animations */
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Responsive Design */
@@ -242,7 +321,6 @@ footer {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.95);
         padding: 1rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     nav.active {
@@ -257,10 +335,16 @@ footer {
     }
 
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 1rem;
+        gap: 1.5rem;
     }
 
     .member-image {
-        height: 250px;
+        height: 300px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
     }
 }
