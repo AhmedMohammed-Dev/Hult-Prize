@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Team - Hult Prize</title>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/team-styles.css">
 </head>
 <body>
+    <div class="loading">
+        <div class="loading-circle"></div>
+    </div>
+
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">
@@ -30,56 +33,24 @@
         </div>
     </header>
 
-    <main class="team-section">
-        <h1 class="section-title">Our Team</h1>
-        <p class="section-subtitle">Meet the dedicated team behind Hult Prize at October Technological University</p>
-
-        <div class="team-grid">
-            <!-- Campus Director -->
-            <div class="team-member">
+    <section class="team-section">
+        <h2 class="section-title">Our Team</h2>
+        <div class="cards-container">
+            <!-- نموذج لعضو في الفريق - كرر هذا الجزء لكل عضو -->
+            <div class="card">
                 <div class="member-image">
-                    <img src="images/director.jpg" alt="Campus Director">
-                    <div class="member-overlay"></div>
+                    <img src="images/member1.jpg" alt="Team Member">
                 </div>
-                <div class="member-info">
-                    <h3>Dr. [Name]</h3>
-                    <p class="position">Campus Director</p>
-                    <div class="member-social">
-                        <a href="#" target="_blank" class="linkedin">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" target="_blank" class="facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </div>
+                <h3>Member Name</h3>
+                <p class="position">Position</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
-
-            <!-- Core Team Members -->
-            <!-- Member 1 -->
-            <div class="team-member">
-                <div class="member-image">
-                    <img src="images/member1.jpg" alt="Team Member 1">
-                    <div class="member-overlay"></div>
-                </div>
-                <div class="member-info">
-                    <h3>[Member Name]</h3>
-                    <p class="position">[Position]</p>
-                    <div class="member-social">
-                        <a href="#" target="_blank" class="linkedin">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" target="_blank" class="facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- كرر هذا الجزء لباقي الأعضاء -->
-
+            <!-- كرر البطاقة لباقي الأعضاء -->
         </div>
-    </main>
+    </section>
 
     <button id="scrollTop" class="scroll-top">
         <i class="fas fa-arrow-up"></i>
@@ -87,22 +58,13 @@
 
     <footer>
         <div class="social-links">
-            <a href="https://web.facebook.com/profile.php?id=61570524970012" target="_blank">
-                <i class="fab fa-facebook"></i>
-            </a>
+            <a href="https://web.facebook.com/profile.php?id=61570524970012" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
         <p>Hult Prize at October Technological University</p>
-        <p class="copyright">© 2025 AhmedMohammed-Dev.</p>
-        
-        <div class="social-links">
-            <a href="https://github.com/AhmedMohammed-Dev" target="_blank" class="github-link">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
-        </div>
+        <p style="color: #666;">© 2025 AhmedMohammed-Dev.</p>
     </footer>
 
     <script src="js/team-script.js"></script>
